@@ -1,0 +1,45 @@
+{
+  "name": "simplesassworkflow",
+  "version": "1.0.0",
+  "description": "A Simple Sass Workflow",
+  "scripts": {
+    "sass": "node-sass --output-style expanded --include-path scss < scss/master.scss | postcss -u autoprefixer > css/master.css",
+    "sassmin": "node-sass --include-path scss < scss/master.scss | postcss --no-map -u autoprefixer -u cssnano > css/master.min.css",
+    "server": "node bs-simple.js",
+    "start": "npm run watch:sass | npm run server",
+    "build": "npm run sass && npm run sassmin",
+    "watch:sass": "node-sass -w --output-style expanded ./scss/ -o ./css/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maddesigns/formwork.git"
+  },
+  "keywords": [
+    "sass",
+    "simple",
+    "browser-sync",
+    "workflow"
+  ],
+  "author": "Sven Wolfermann",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/maddesigns/formwork/issues"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 9",
+    "Android >= 4.4",
+    "iOS > 8",
+    "Firefox ESR",
+    "> 2%"
+  ],
+  "homepage": "https://github.com/maddesigns/formwork/issues#readme",
+  "dependencies": {
+    "autoprefixer": "latest",
+    "browser-sync": "latest",
+    "bs-html-injector": "latest",
+    "cssnano": "latest",
+    "node-sass": "latest",
+    "postcss-cli": "latest"
+  }
+}
